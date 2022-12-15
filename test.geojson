@@ -6,7 +6,7 @@
     "geometry": {
       "type": "Point",
       "coordinates": [ 6.893470, 52.222698, 0.0 ]
-    },
+    }},
    { "type": "Feature", "properties": { "name": "Happy Italy", "client": false},
     "geometry": {
       "type": "Point",
