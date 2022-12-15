@@ -1,11 +1,16 @@
 {
   "type": "FeatureCollection",
-  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84", "client": true} },
   "features": [
   { "type": "Feature", "properties": { "name": "Salesdock" },
     "geometry": {
       "type": "Point",
       "coordinates": [ 6.893470, 52.222698, 0.0 ]
+    }
+   { "type": "Feature", "properties": { "name": "Happy Italy", "client": false},
+    "geometry": {
+      "type": "Point",
+      "coordinates": [ 6.894722, 52.2220498, 0.0 ]
     }
   } ]
 }
