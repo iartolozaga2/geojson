@@ -5,7 +5,7 @@
   { "type": "Feature", "properties": { "name": "Salesdock" },
     "geometry": {
       "type": "Point",
-      "coordinates": [ 6.893, 52.222, 0.0 ]
+      "coordinates": [ 6.893470, 52.222698, 0.0 ]
     }
   } ]
 }
