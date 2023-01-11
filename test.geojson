@@ -7,10 +7,20 @@
       "type": "Point",
       "coordinates": [ 6.893470, 52.222698, 0.0 ]
     }},
-   { "type": "Feature", "properties": { "name": "Happy Italy", "client": false},
+   { "type": "Feature", "properties": { "name": "Happy Italy", "client": false },
     "geometry": {
       "type": "Point",
       "coordinates": [ 6.894722, 52.2220498, 0.0 ]
-    }
-  } ]
+    }},
+   { "type": "Feature", "properties": { "name": "Inigo's House", "client": true },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [ 6.908670, 52.224740, 0.0 ]
+    }},
+   { "type": "Feature", "properties": { "name": "Cube Bouldergym", "client": false },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [ 6.8907144, 52.2177171, 0.0 ]
+    }}
+  ]
 }
