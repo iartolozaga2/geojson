@@ -10,7 +10,7 @@
    { "type": "Feature", "properties": { "name": "Happy Italy", "client": false },
     "geometry": {
       "type": "Point",
-      "coordinates": [ 6.894722, 52.2220498, 0.0 ]
+      "coordinates": [ 6.893620, 52.222330, 0.0 ]
     }},
    { "type": "Feature", "properties": { "name": "Inigo's House", "client": true },
     "geometry": {
