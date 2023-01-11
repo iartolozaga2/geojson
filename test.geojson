@@ -20,7 +20,7 @@
    { "type": "Feature", "properties": { "name": "Cube Bouldergym", "client": false },
     "geometry": {
       "type": "Point",
-      "coordinates": [ 6.8907144, 52.2177171, 0.0 ]
+      "coordinates": [ 6.903966, 52.223282, 0.0 ]
     }}
   ]
 }
