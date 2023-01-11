@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Load data from an external GeoJSON file</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js">   
+</script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+ 
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiaW5pZ29hIiwiYSI6ImNsYm90Ym5qcjAxbXYzbmxleTBnNnZlMDYifQ.uMMAGnft9CC9GFn0yM0YJw';
+var map = new mapboxgl.Map({
+container: 'map', // container ID
+// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+style: 'mapbox://styles/mapbox/streets-v12', // style URL
+projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
+// zoom: 16, // starting zoom
+// center: [6.893470, 52.222698] // // starting center in [lng, lat]
+});
+ 
+map.on('style.load', () => {
+map.setFog({}); // Set the default atmosphere style
+});
+    
+map.fitBounds([
+    [6.886360, 52.214310], // southwestern corner of the bounds
+    [6.920140, 52.228271] // northeastern corner of the bounds
+    ], 
+    {
+        linear: true
+    });
+ 
+map.on('load', () => {
+map.addSource('labels', {
+type: 'geojson',
+// Use a URL for the value for the `data` property.
+data: 'https://raw.githubusercontent.com/iartolozaga2/geojson/main/test.geojson'
+});
+    
+map.addSource('streets', {
+    type: 'vector',
+    url: 'mapbox://mapbox.mapbox-streets-v8'
+});
+    
+map.addLayer({
+'id': 'building-highlighted',
+'type': 'fill',
+'source': 'streets',
+'source-layer': 'building',
+'paint': {
+'fill-outline-color': '#484896',
+'fill-color': '#6e599f',
+'fill-opacity': 0.8
+}
+}
+);
+    
+map.addLayer({
+'id': 'labels-layer',
+'type': 'circle',
+'source': 'labels',
+'paint': {
+'circle-radius': 10,
+'circle-stroke-width': 2,
+'circle-color': {
+    property: 'client',
+    type: 'categorical',
+    stops: [
+        [true, '#ff0000'],
+        [false, '#ffffff']]
+},
+'circle-stroke-color': 'white'
+}
+});
+    
+//Experimental stuff
+var features = map.queryRenderedFeatures(
+            { layers: ["labels-layer"]});
+    
+features.forEach(function(feature){
+        console.log(feature.geometry);  // feature.geometry getter returns building shape points (basement)
+        console.log(feature.properties.height); // this is the building height
+        console.log(feature.properties.min_height); // this is the building part elevation from groung (e.g. a bridge)
+    })
+    
+});
+    
+</script>
+ 
+</body>
+</html>
